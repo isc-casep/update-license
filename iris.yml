@@ -1,7 +1,7 @@
 ---
 - hosts: iris_instances
   become: yes
-  become_user: irisowner
+  become_user: irissys
 
   vars:
     temp_folder: /tmp/
