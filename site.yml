@@ -1,5 +1,0 @@
----
-- hosts: cache_instances:iris_instances
-
-#- import_playbook: cache.yml
-- import_playbook: iris.yml
