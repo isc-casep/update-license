@@ -4,6 +4,12 @@
   become_user: cachesys
 
   vars:
-    server_type: db_server
+    temp_folder: /tmp/
+    source_license: /opt/installers/
+    instance_control_cmd: cache
+    instance_session_cmd: csession
+    instance_owner: cachesys
+    license_key_filename: cache.key
+
   roles:
   - deploy
