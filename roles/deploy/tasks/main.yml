@@ -1,0 +1,12 @@
+---
+### Main Task:  Setup DB Server ###
+### Filename:   /roles/deploy/tasks/main.yml
+### Author:     Carlos Sepulveda
+
+- debug: msg="Start tc_dbserver install"
+
+# Copy license
+- name: Copy file
+  copy:
+    src: "{{ source_license }}"
+    dest: "{{ temp_folder }}/{{ license_key_filename }}"

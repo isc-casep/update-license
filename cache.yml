@@ -1,0 +1,9 @@
+---
+- hosts: cache_instances
+  become: yes
+  become_user: cachesys
+
+  vars:
+    server_type: db_server
+  roles:
+  - deploy

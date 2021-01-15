@@ -1,0 +1,14 @@
+---
+- hosts: iris_instances
+  become: yes
+  become_user: irisowner
+
+  vars:
+    server_type: db_server
+    instance_control_cmd: iris
+    instance_session_cmd: irissession
+    instance_owner: irisowner
+    license_key_filename: iris.key
+
+  roles:
+  - deploy
