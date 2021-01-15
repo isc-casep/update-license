@@ -8,5 +8,5 @@
 # Copy license
 - name: Copy file
   copy:
-    src: "{{ source_license }}"
+    src: "{{ source_license }}/{{ license_key_filename }}"
     dest: "{{ temp_folder }}/{{ license_key_filename }}"
