@@ -4,10 +4,11 @@
   become_user: irisowner
 
   vars:
-    server_type: db_server
+    temp_folder: /tmp/
+    source_license: /opt/installers/
     instance_control_cmd: iris
     instance_session_cmd: irissession
-    instance_owner: irisowner
+    instance_owner: irissys
     license_key_filename: iris.key
 
   roles:
