@@ -31,9 +31,9 @@
   shell: sed -n '/^\[License\]/,/^\[/p' {{ temp_folder }}/{{ license_key_filename }} | grep "^ExpirationDate=" | cut -d'=' -f 2
   register: newExpirationDate
 
-- debug: msg="Instance path: {{ instance_path.stdout }}"
-- debug: msg="New Order Number: {{ newOrderNumber.stdout }}"
-- debug: msg="Current Order Number: {{ currentOrderNumber.stdout }}"
+- debug: msg="Instance path= {{ instance_path.stdout }}"
+- debug: msg="New Order Number= {{ newOrderNumber.stdout }}"
+- debug: msg="Current Order Number= {{ currentOrderNumber.stdout }}"
 - debug: msg="{{ newCustomerName.stdout }}"
 - debug: msg="{{ newExpirationDate.stdout }}"
 #- name: MPM Already set?
