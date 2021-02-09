@@ -38,7 +38,7 @@
 
 - debug: msg="New Order Number= {{ newOrderNumber.stdout }}"
 - debug:
-    msg="Current Order Number= {{ item.4 }}"
+    msg="Current Order Number= {{ item.3 }}"
   with_items: "{{ currentOrderNumber }}"
 - debug: msg="{{ newCustomerName.stdout }}"
 - debug: msg="{{ newExpirationDate.stdout }}"
