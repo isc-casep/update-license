@@ -20,9 +20,9 @@
   register: newOrderNumber
 
 - name: OrderNumber from current license
-    shell: sed -n '/^\[License\]/,/^\[/p' {{ item }}/mgr/{{ license_key_filename }} | grep "^OrderNumber=" | cut -d'=' -f 2
-    register: currentOrderNumber
-    with_items: {{ instance_path.stdout.split('\n') }}
+  shell: sed -n '/^\[License\]/,/^\[/p' {{ item }}/mgr/{{ license_key_filename }} | grep "^OrderNumber=" | cut -d'=' -f 2
+  register: currentOrderNumber
+  with_items: {{ instance_path.stdout.split('\n') }}
 
 - name: CustomerName from new license
   shell: sed -n '/^\[License\]/,/^\[/p' {{ temp_folder }}/{{ license_key_filename }} | grep "^CustomerName=" | cut -d'=' -f 2
