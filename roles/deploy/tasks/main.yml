@@ -15,7 +15,7 @@
   shell: sed -n '/^\[License\]/,/^\[/p' {{ temp_folder }}/{{ license_key_filename }} | grep "^OrderNumber=" | cut -d'=' -f 2
   register: newOrderNumber
 
-- debug: msg={{ newOrderNumber }}
+- debug: msg={{ newOrderNumber.stdout }}
 
 #- name: MPM Already set?
 #  debug: msg="MPM set"
