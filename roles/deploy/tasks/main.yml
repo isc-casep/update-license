@@ -11,12 +11,16 @@
     src: "{{ source_license }}/{{ license_key_filename }}"
     dest: "{{ temp_folder }}/{{ license_key_filename }}"
 
-- name: details from current license
+- name: OrderNumber from new license
   shell: sed -n '/^\[License\]/,/^\[/p' {{ temp_folder }}/{{ license_key_filename }} | grep "^OrderNumber=" | cut -d'=' -f 2
   register: newOrderNumber
 
-- debug: msg={{ newOrderNumber.stdout }}
+- name: CustomerName from new license
+  shell: sed -n '/^\[License\]/,/^\[/p' {{ temp_folder }}/{{ license_key_filename }} | grep "^CustomerName=" | cut -d'=' -f 2
+  register: newCustomerName
 
+- debug: msg={{ newOrderNumber.stdout }}
+- debug: msg={{ newCustomerName.stdout }}
 #- name: MPM Already set?
 #  debug: msg="MPM set"
 #  when: mpmset.rc == 1
