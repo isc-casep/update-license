@@ -1,5 +1,6 @@
 [cache_instances]
 db02
+db03
 
 [iris_instances]
 db01
