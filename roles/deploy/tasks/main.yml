@@ -3,10 +3,29 @@
 ### Filename:   /roles/deploy/tasks/main.yml
 ### Author:     Carlos Sepulveda
 
-- debug: msg="Start tc_dbserver install"
+- debug: msg="Start process"
 
 # Copy license
 - name: Copy file
   copy:
     src: "{{ source_license }}/{{ license_key_filename }}"
     dest: "{{ temp_folder }}/{{ license_key_filename }}"
+
+- name: details from current license
+  shell: sed -n '/^\[License\]/,/^\[/p' {{ temp_folder }}/{{ license_key_filename }} | grep "^OrderNumber=" | cut -d'=' -f 2
+  register: newOrderNumber
+
+- debug: msg={{ newOrderNumber }}
+
+#- name: MPM Already set?
+#  debug: msg="MPM set"
+#  when: mpmset.rc == 1
+
+#- name: enable MPM worker comment prefork
+#  lineinfile:
+#    dest: "{{ apache_modules_path }}/{{ apache_default_mpm_filename }}"
+#    regexp: "^LoadModule mpm_prefork_module modules/mod_mpm_prefork.so"
+#    backrefs: yes
+#    line: "#LoadModule mpm_prefork_module modules/mod_mpm_prefork.so"
+#    backup: yes
+#  when: mpmset.rc == 0
