@@ -39,7 +39,7 @@
 - debug: msg="New Order Number= {{ newOrderNumber.stdout }}"
 - debug:
     msg="Current Order Number= {{ item }}"
-  with_items: "{{ currentOrderNumber }}"
+  with_items: "{{ currentOrderNumber.stdout }}"
 - debug: msg="{{ newCustomerName.stdout }}"
 - debug: msg="{{ newExpirationDate.stdout }}"
 #- name: MPM Already set?
