@@ -22,7 +22,7 @@
 - name: OrderNumber from current license
     shell: sed -n '/^\[License\]/,/^\[/p' {{ item }}/mgr/{{ license_key_filename }} | grep "^OrderNumber=" | cut -d'=' -f 2
     register: currentOrderNumber
-  loop: {{ instance_path.stdout.split('\n') }}
+  with_items: {{ instance_path.stdout.split('\n') }}
 
 - name: CustomerName from new license
   shell: sed -n '/^\[License\]/,/^\[/p' {{ temp_folder }}/{{ license_key_filename }} | grep "^CustomerName=" | cut -d'=' -f 2
@@ -34,7 +34,7 @@
 
 - debug:
     msg="Instance path= {{ item }}"
-  loop: {{ instance_path.stdout.split('\n') }}
+  with_items: {{ instance_path.stdout.split('\n') }}
 
 - debug: msg="New Order Number= {{ newOrderNumber.stdout }}"
 - debug: msg="Current Order Number= {{ currentOrderNumber.stdout }}"
