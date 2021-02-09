@@ -12,7 +12,7 @@
     dest: "{{ temp_folder }}/{{ license_key_filename }}"
 
 - name: instance path
-  shell: {{ instance_control_cmd }} | cut -d'^' -f 2
+  shell: {{ instance_control_cmd }} qlist | cut -d'^' -f 2
   register: instance_path
 
 - name: OrderNumber from new license
