@@ -38,7 +38,7 @@
 
 - debug: msg="New Order Number= {{ newOrderNumber.stdout }}"
 - debug:
-    msg="Current Order Number= {{ currentOrderNumber["stdout_lines"] }}"
+    msg="Current Order Number= {{ currentOrderNumber['stdout_lines'] }}"
 - debug: msg="{{ newCustomerName.stdout }}"
 - debug: msg="{{ newExpirationDate.stdout }}"
 #- name: MPM Already set?
